@@ -1,33 +1,44 @@
+import 'package:cotrack/Modules/constants.dart';
 import 'package:flutter/material.dart';
 
-class Homepage extends StatefulWidget {
-  @override
-  _HomepageState createState() => _HomepageState();
-}
-
-class _HomepageState extends State<Homepage> {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('CoTrack'),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.equalizer),
-            title: Text('Statistics'),
+    return Container(
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Cotrack',
+                style: titleStyle,
+              ),
+              Divider(
+                height: 20.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Text('Country', style: statsStyle),
+                  Text(
+                    'Confirmed',
+                    style: statsStyle,
+                  ),
+                  Text(
+                    'Recovered',
+                    style: statsStyle,
+                  ),
+                  Text(
+                    'Deaths',
+                    style: statsStyle,
+                  )
+                ],
+              )
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.phone),
-            title: Text('Helpline'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.language),
-            title: Text('News'),
-          ),
-        ],
-        backgroundColor: Colors.black12,
+        ),
       ),
     );
   }
