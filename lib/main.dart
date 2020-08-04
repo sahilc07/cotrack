@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Screens/homepage.dart';
 import 'Screens/helplinepage.dart';
-import 'Screens/newspage.dart';
+import 'Screens/indiastatspage.dart';
 
 void main() {
   runApp(MyApp());
@@ -41,37 +41,32 @@ class _BaseAppState extends State<BaseApp> {
 
   List<Widget> screens = [
     HomePage(),
-    HelplinePage(),
-    NewsPage(),
+    IndiaStats(),
+    Helpline(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('CoTrack'),
-      // ),
-      body: Center(
-        child: screens[_selectedIndex],
-      ),
+      body: screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            icon: Icon(Icons.language),
+            title: Text('World Cases'),
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.equalizer),
-            title: Text('Statistics'),
+            title: Text('India Cases'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.phone),
             title: Text('Helpline'),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.language),
-            title: Text('News'),
-          ),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        selectedItemColor: Colors.lightBlueAccent,
+        selectedItemColor: Colors.lightBlueAccent[700],
       ),
     );
   }
